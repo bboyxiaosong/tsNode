@@ -7,5 +7,9 @@
     "start": "tsc && node out/index.js"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@types/request": "^2.48.6",
+    "request": "^2.88.2"
+  }
 }

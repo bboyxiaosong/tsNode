@@ -1,2 +1,9 @@
 "use strict";
-console.log('wqwdqwdqw');
+// 
+Object.defineProperty(exports, "__esModule", { value: true });
+// console.log('Hello')
+var GithubApiService_1 = require("./GithubApiService");
+var api = new GithubApiService_1.GithubApiService();
+api.getUserInfo('nickwen', function (user) {
+    console.log(user);
+});
