@@ -5,6 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.GithubApiService = void 0;
 var request_1 = __importDefault(require("request"));
+var Repos_1 = require("./Repos");
 var User_1 = require("./User");
 var url = 'https://api.github.com/users/';
 var options = {
@@ -20,6 +21,14 @@ var GithubApiService = /** @class */ (function () {
         request_1.default.get(url + useName, options, function (error, res, body) {
             var user = new User_1.User(body);
             callback(user);
+        });
+    };
+    GithubApiService.prototype.getRepos = function (useName, callback) {
+        request_1.default.get(url + useName + '/repos', options, function (error, res, body) {
+            console.log(body);
+            var repo = body.map(function (repo) { return new Repos_1.Repos(repo); });
+            console.log(repo);
+            callback(repo);
         });
     };
     return GithubApiService;
