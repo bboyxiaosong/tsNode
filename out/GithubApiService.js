@@ -25,9 +25,7 @@ var GithubApiService = /** @class */ (function () {
     };
     GithubApiService.prototype.getRepos = function (useName, callback) {
         request_1.default.get(url + useName + '/repos', options, function (error, res, body) {
-            console.log(body);
             var repo = body.map(function (repo) { return new Repos_1.Repos(repo); });
-            console.log(repo);
             callback(repo);
         });
     };
